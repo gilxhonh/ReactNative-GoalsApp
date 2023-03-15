@@ -3,14 +3,14 @@ import {Button, StyleSheet, TextInput, View} from "react-native";
 
 function GoalInput({onAddGoal}) {
     const [input, setInput] = useState("");
-    const [active, setActive ] = useState(true)
+    const [buttonDisabled, setButtonDisabled ] = useState(true)
 
     let handeInputGoal = (enteredText) => {
         if(enteredText.length !== 0) {
-            setActive(false)
+            setButtonDisabled(false)
         }
         if(enteredText.length === 0){
-            setActive(true);
+            setButtonDisabled(true);
         }
 
         setInput(enteredText);
@@ -19,6 +19,7 @@ function GoalInput({onAddGoal}) {
     let addGoalHandler = () => {
         onAddGoal(input);
         setInput('');
+        setButtonDisabled(true)
     };
 
     return(
@@ -29,7 +30,7 @@ function GoalInput({onAddGoal}) {
                 placeholder='Your course goal!'
                 value={input}
             />
-            <Button onPress={addGoalHandler} title='Add Goal' color={'#02987e'} disabled={active}/>
+            <Button onPress={addGoalHandler} title='Add Goal' color={'#02987e'} disabled={buttonDisabled}/>
         </View>
     )
 }
