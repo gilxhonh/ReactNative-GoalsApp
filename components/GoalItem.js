@@ -10,7 +10,7 @@ function GoalItem({itemData}) {
     )
 }
 
-export default GoalItem;
+export default GoalItem ;
 
 const  styles = StyleSheet.create({
     goalItem: {

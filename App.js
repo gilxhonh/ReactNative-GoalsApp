@@ -1,6 +1,6 @@
 import {StyleSheet, View, Button, TextInput, FlatList} from 'react-native';
 import {useState} from "react";
-import GoalItem from "./components/GoalItem";
+import GoalItem from './components/GoalItem';
 export default function App() {
     const [input, setInput] = useState("");
     const [goals, setGoals] = useState([]);
@@ -32,7 +32,9 @@ export default function App() {
             <View style={styles.goalsContainer}>
                 <FlatList
                     data={goals}
-                    renderItem={(itemData) => <GoalItem itemData={itemData} /> }
+                    renderItem={(itemData) => {
+                        return <GoalItem itemData={itemData}/>
+                    } }
                     keyExtractor={(item) => {
                         return item.id;
                     }}
