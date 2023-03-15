@@ -1,15 +1,12 @@
-import {StyleSheet, View, Button, TextInput, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList} from 'react-native';
 import {useState} from "react";
 import GoalItem from './components/GoalItem';
+import GoalInput from './components/GoalInput';
 export default function App() {
-    const [input, setInput] = useState("");
     const [goals, setGoals] = useState([]);
 
-    let handeInputGoal = (enteredText) => {
-        setInput(enteredText);
-    }
 
-    let addGoal = () => {
+    let addGoalHandler = (input) => {
         console.log(input);
         setGoals(currentCourseGoals => [
             ...currentCourseGoals,
@@ -19,21 +16,14 @@ export default function App() {
 
     return (
         <View style={styles.appContainer}>
-            <View style={styles.inputContainer}>
-                <TextInput
-                    onChangeText={handeInputGoal}
-                    style={styles.textInput}
-                    placeholder='Your course goal!'
-                    value={input}
-                />
-                <Button onPress={addGoal} title='Add Goal'/>
-            </View>
+
+            <GoalInput onAddGoal={addGoalHandler}/>
 
             <View style={styles.goalsContainer}>
                 <FlatList
                     data={goals}
                     renderItem={(itemData) => {
-                        return <GoalItem itemData={itemData}/>
+                        return <GoalItem text={itemData.item.text}/>
                     } }
                     keyExtractor={(item) => {
                         return item.id;
@@ -51,15 +41,7 @@ const styles = StyleSheet.create({
         padding: 50,
         paddingHorizontal: 16,
     },
-    inputContainer: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        marginBottom: 24,
-        borderBottomWidth: 1,
-        borderBottomColor: '#02987e',
-    },
+
     textInput: {
         borderWidth: 1,
         borderColor: '#02987e',
