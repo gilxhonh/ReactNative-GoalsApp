@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Button, Modal, StyleSheet, TextInput, View} from "react-native";
 
-function GoalInput({onAddGoal, visible}) {
+function GoalInput({onAddGoal, visible, onCancel}) {
     const [input, setInput] = useState("");
     const [buttonDisabled, setButtonDisabled ] = useState(true)
 
@@ -37,7 +37,7 @@ function GoalInput({onAddGoal, visible}) {
                     </View>
 
                     <View style={styles.button}>
-                        <Button title='Cancel' />
+                        <Button title='Cancel' onPress={onCancel}/>
                     </View>
                 </View>
             </View>
