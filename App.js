@@ -6,11 +6,11 @@ export default function App() {
     const [modalIsVisible, setModalIsVisible] = useState(false)
     const [goals, setGoals] = useState([]);
 
-    let startAddGoalHandler = () => {
+    const startAddGoalHandler = () => {
         setModalIsVisible(true)
     }
 
-    let addGoalHandler = (input) => {
+    const addGoalHandler = (input) => {
         console.log(input);
         setGoals(currentCourseGoals => [
             ...currentCourseGoals,
@@ -18,7 +18,7 @@ export default function App() {
         ]);
     }
 
-    let deleteGoalHandler = (id) => {
+    const deleteGoalHandler = (id) => {
         setGoals(currentCourseGoals => {
             return currentCourseGoals.filter((goal) => goal.id !== id);
         })

@@ -5,7 +5,7 @@ function GoalInput({onAddGoal, visible}) {
     const [input, setInput] = useState("");
     const [buttonDisabled, setButtonDisabled ] = useState(true)
 
-    let handeInputGoal = (enteredText) => {
+    const handeInputGoal = (enteredText) => {
         if(enteredText.length !== 0) {
             setButtonDisabled(false)
         }
@@ -16,7 +16,7 @@ function GoalInput({onAddGoal, visible}) {
         setInput(enteredText);
     };
 
-    let addGoalHandler = () => {
+    const addGoalHandler = () => {
         onAddGoal(input);
         setInput('');
         setButtonDisabled(true)
