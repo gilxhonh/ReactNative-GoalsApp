@@ -34,7 +34,7 @@ function GoalInput({onAddGoal, visible, onCancel}) {
                 <TextInput
                     onChangeText={handeInputGoal}
                     style={styles.textInput}
-                    placeholder='Your course goal!'
+                    placeholder='Enter your goal!'
                     value={input}
                 />
 
