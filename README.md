@@ -35,7 +35,7 @@ It's a great first app to learn about many core fundamentals about React Native.
 + Start the server
 
 ```bash
-  npx expo start
+  npm start
 ```
 
 
